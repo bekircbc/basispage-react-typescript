@@ -15,7 +15,7 @@ const person: IPerson = {
 	lastName: 'Deckner',
 	age: 34,
 	isMember: true,
-	scores: [38],
+	scores: [95, 80, 85],
 	accessGroups: ['admins'],
 };
 
