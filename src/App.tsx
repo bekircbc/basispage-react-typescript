@@ -1,6 +1,12 @@
 import { useState } from 'react';
 import './App.scss';
 
+enum PersonStatus {
+	Employee,
+	Customer,
+	Unkown,
+}
+
 interface IPerson {
 	firstName: string;
 	lastName: string;
@@ -8,6 +14,7 @@ interface IPerson {
 	isMember: boolean;
 	scores: number[];
 	accessGroups: string[];
+	status: PersonStatus;
 }
 
 const person: IPerson = {
@@ -17,6 +24,7 @@ const person: IPerson = {
 	isMember: true,
 	scores: [95, 80, 85],
 	accessGroups: ['admins'],
+	status: PersonStatus.Employee,
 };
 
 function App() {
