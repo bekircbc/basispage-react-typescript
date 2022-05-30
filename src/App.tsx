@@ -1,23 +1,6 @@
 import { useState } from 'react';
+import { IPerson, PersonStatus } from './data/interfaces';
 import './App.scss';
-
-type Status = 'customer' | 'employee' | 'unknown';
-
-enum PersonStatus {
-	Employee,
-	Customer,
-	Unkown,
-}
-
-interface IPerson {
-	firstName: string;
-	lastName: string;
-	age: number;
-	isMember: boolean;
-	scores: number[];
-	accessGroups: string[];
-	status: Status;
-}
 
 const person: IPerson = {
 	firstName: 'Georg',
