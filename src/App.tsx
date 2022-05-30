@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './App.scss';
 
+type Status = 'customer' | 'employee' | 'unknown';
+
 enum PersonStatus {
 	Employee,
 	Customer,
@@ -14,7 +16,7 @@ interface IPerson {
 	isMember: boolean;
 	scores: number[];
 	accessGroups: string[];
-	status: PersonStatus;
+	status: Status;
 }
 
 const person: IPerson = {
@@ -23,8 +25,8 @@ const person: IPerson = {
 	age: 34,
 	isMember: true,
 	scores: [95, 80, 85],
-	accessGroups: ['admins'],
-	status: PersonStatus.Employee,
+	accessGroups: ['admins', 'backupAdmins'],
+	status: 'customer',
 };
 
 function App() {
@@ -33,8 +35,14 @@ function App() {
 	return (
 		<div className="App">
 			<p>
-				The person {person.firstName} {person.lastName} is {person.age}{' '}
-				years old. Their scoes are:{person.scores.join(',')}
+				{person.status === 'customer' && (
+					<p>
+						The person {person.firstName} {person.lastName} is
+						{person.age} years old. Their scores are :
+						{person.scores.join(',')} and his status is:
+						{person.status}
+					</p>
+				)}
 			</p>
 		</div>
 	);
